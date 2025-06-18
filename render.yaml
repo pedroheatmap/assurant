@@ -2,9 +2,11 @@ services:
   - type: web
     name: heatmap-oficinas
     env: python
-    buildCommand: pip install -r requirements.txt
+    buildCommand: |
+      pip install --upgrade pip setuptools wheel
+      pip install -r requirements.txt
     startCommand: gunicorn app:app --timeout 120 --workers 1
     autoDeploy: true
     envVars:
       - key: PYTHON_VERSION
-        value: 3.9.16  # Versão mais estável e compatível
+        value: 3.10.12  # Versão mais estável
