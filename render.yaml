@@ -2,7 +2,7 @@ services:
   - type: web
     name: heatmap-oficinas
     env: python
-    pythonVersion: "3.10.12"  # Força esta versão específica
+    pythonVersion: "3.10.12"  # Make sure this matches runtime.txt
     buildCommand: |
       python -m pip install --upgrade pip setuptools wheel
       pip install -r requirements.txt
