@@ -2,9 +2,9 @@ services:
   - type: web
     name: heatmap-oficinas
     env: python
-    pythonVersion: "3.10.12"  # Make sure this matches runtime.txt
-    buildCommand: |
-      python -m pip install --upgrade pip setuptools wheel
-      pip install -r requirements.txt
+    buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app:app --timeout 120 --workers 1
     autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11
